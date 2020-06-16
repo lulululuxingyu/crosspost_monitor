@@ -111,7 +111,8 @@ def read_sheet(filename, spreadsheet_id):
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=spreadsheet_id, range=read_range).execute()
     values = result.get('values', [])
-
+    f = []
+    s = []
     if not values:
         pass
     else:
@@ -131,12 +132,10 @@ def read_sheet(filename, spreadsheet_id):
         for succeed in s:
             collect(filename, values[succeed - 1][0], values[succeed - 1][1])
         """
-        f = []
-        s = []
         for i in range(1, len(values)):
             if len(values[i]) < 2 or values[i][0] == '' or values[i][1] == '':
                 f.append((i, 'not completed!'))
-            elif len(values[i]) == 2 or (len(values[i]) > 2 and values[2] != 'succeed'):
+            elif len(values[i]) == 2 or (len(values[i]) > 2 and values[i][2] != 'succeed'):
                 try:
                     collect(filename, values[i][0], values[i][1])
                     s.append(i)
@@ -156,6 +155,7 @@ def read_sheet(filename, spreadsheet_id):
             service.spreadsheets().batchUpdate(
                 spreadsheetId=spreadsheet_id,
                 body=body).execute()
+    return len(s)
 
 
 def generate_requests(f, s):
@@ -275,8 +275,10 @@ def main():
                 line = line[:-1]
             spreadsheet_ids.append(line)
             line = f.readline()
+    total_count = 0
     for spreadsheet_id in spreadsheet_ids:
-        read_sheet('../output_data/crosspost_data.tsv', spreadsheet_id)
+        total_count += read_sheet('../output_data/crosspost_data.tsv', spreadsheet_id)
+    print(total_count)
 
 
 if __name__ == '__main__':

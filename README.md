@@ -16,5 +16,6 @@
 			successfully collected 100 submissions(5 minute interval)
 
 	# challenge:
-		- what's the rate of generation of events?
+		- what's the rate of generation of events? every 10 minutes
+		- what's the number of accounts and number of spread sheets
 		- figure out the capacity of the script
