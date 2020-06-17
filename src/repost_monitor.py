@@ -132,7 +132,7 @@ def read_sheet(filename, spreadsheet_id):
         for succeed in s:
             collect(filename, values[succeed - 1][0], values[succeed - 1][1])
         """
-        for i in range(1, len(values)):
+        for i in range(2, len(values)):
             if len(values[i]) < 2 or values[i][0] == '' or values[i][1] == '':
                 f.append((i, 'not completed!'))
             elif len(values[i]) == 2 or (len(values[i]) > 2 and values[i][2] != 'succeed'):
