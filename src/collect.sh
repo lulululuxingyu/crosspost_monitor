@@ -8,9 +8,9 @@ while :
 	do 	
 		echo "#####" >> ../output_data/information
 
-		echo start collect crosspost events
-		cr=$(($cr + $(python3 crosspost_monitor.py)))
-		echo "time: $(date +"%T")	num_crossposts: $cr" >> ../output_data/information
+		#echo start collect crosspost events
+		#cr=$(($cr + $(python3 crosspost_monitor.py)))
+		#echo "time: $(date +"%T")	num_crossposts: $cr" >> ../output_data/information
 
 		echo start collect repost events
 		re=$(($re + $(python3 repost_monitor.py)))
@@ -18,5 +18,5 @@ while :
 
 		echo succeed!
 		echo "#####\n" >> ../output_data/information
-		sleep 300
+		sleep 500
 done
