@@ -109,7 +109,7 @@ def main():
         filename = '../intermediate_data/collect_' + account.name + '_ids'
         with open(filename, 'a') as f:
             pass
-        total_count += collect(reddit, account, 50)
+        total_count += collect(reddit, account, 20)
     print(total_count)
 
 
