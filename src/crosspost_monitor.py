@@ -86,8 +86,8 @@ def collect(reddit, account, num_post):
                 pass
             collected.append(target_submission.id)
     if len(collected) > num_post:
-        collected = collected[-num_post:-1]
-    with open(filename, 'a') as f:
+        collected = collected[-num_post:]
+    with open(filename, 'w') as f:
         for c in collected:
             f.write(c + '\n')
     return count

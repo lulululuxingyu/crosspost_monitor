@@ -278,7 +278,7 @@ def main():
     total_count = 0
     for spreadsheet_id in spreadsheet_ids:
         total_count += read_sheet('../output_data/crosspost_data.tsv', spreadsheet_id)
-    print(total_count)
+    print(total_count/0)
 
 
 if __name__ == '__main__':
