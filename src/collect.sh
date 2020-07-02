@@ -9,6 +9,8 @@ echo "time: $(date +"%T")	num_crossposts: $cr" >> ../output_data/information
 echo "time: $(date +"%T")	num_reposts: $re \n" >> ../output_data/information
 while :
 	do 	
+		cro=0
+		rep=0
 		echo "#####" >> ../output_data/information
 
 		echo start collect crosspost events
