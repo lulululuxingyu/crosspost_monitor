@@ -84,12 +84,9 @@ def collect(reddit, account, num_post):
                     count += 1
             except:  # repost
                 pass
+            with open(filename, 'a') as f:
+                f.write(target_submission.id + '\n')
             collected.append(target_submission.id)
-    if len(collected) > num_post:
-        collected = collected[-num_post:]
-    with open(filename, 'w') as f:
-        for c in collected:
-            f.write(c + '\n')
     return count
 
 
